@@ -21,9 +21,9 @@
 
 #root {
   /* PC */
-  width: calc(100dvw + env(safe-area-inset-top));
+  width: 100dvw;
   max-width: 544px;
-  height: 100dvh;
+  height: calc(100dvh + env(safe-area-inset-top));
 
   /* iOS */
   /* width: 390px;
