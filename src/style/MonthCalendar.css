@@ -30,6 +30,10 @@
     margin: 0.5em;
   }
 
+  .react-calendar__tile react-calendar__month-view__days__day abbr {
+    color: var(--black) !important;
+  }
+
   .react-calendar,
   .react-calendar *,
   .react-calendar *:before,
