@@ -1,7 +1,7 @@
 // import React from 'react'
-import { useNavigate } from "react-router-dom"
-import styled from "styled-components"
-import { ReactComponent as LeftArrow } from '../../assets/icons/left-arrow.svg'
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import { ReactComponent as LeftArrow } from "../../assets/icons/left-arrow.svg";
 
 interface HeadBarProps {
   pagename: string;
@@ -10,42 +10,40 @@ interface HeadBarProps {
   center?: boolean;
 }
 
-export default function HeadBar({ pagename, bgcolor, backbutton, center }: HeadBarProps) {
+export default function HeadBar({
+  pagename,
+  bgcolor,
+  backbutton,
+  center,
+}: HeadBarProps) {
   const navigate = useNavigate();
 
   const goBack = () => {
     navigate(-1);
-  }
+  };
 
   return (
-    <HeadBarFrame style={{backgroundColor: `var(--${bgcolor})`}}>
+    <HeadBarFrame style={{ backgroundColor: `var(--${bgcolor})` }}>
       <HeadBarContext>
-        {backbutton === "yes" ? <LeftArrow onClick={goBack}/> : null}
-        {center ? (
-          <CenterFrame>
-            {pagename}
-          </CenterFrame>
-        ) : (
-          <>&nbsp;{pagename}</>
-        )}
+        {backbutton === "yes" ? <LeftArrow onClick={goBack} /> : null}
+        {center ? <CenterFrame>{pagename}</CenterFrame> : <>&nbsp;{pagename}</>}
       </HeadBarContext>
     </HeadBarFrame>
-  )
+  );
 }
-
 
 const HeadBarFrame = styled.div`
   position: absolute;
   width: 100%;
   min-height: 30px;
-  height: calc(env(safe-area-inset-top) * 1.5);
+  height: calc(env(safe-area-inset-top) * 2);
   top: env(safe-area-inset-top);
   left: 0;
-  border-bottom: 1px solid var(--gray);;
+  border-bottom: 1px solid var(--gray);
   /* border: 1px black solid; */
 
   z-index: 2;
-`
+`;
 
 const HeadBarContext = styled.div`
   position: absolute;
@@ -55,7 +53,7 @@ const HeadBarContext = styled.div`
   font-weight: 650;
   display: flex;
   align-items: center;
-`
+`;
 
 const CenterFrame = styled.div`
   position: absolute;
