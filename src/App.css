@@ -21,7 +21,7 @@
 
 #root {
   /* PC */
-  width: 100dvw;
+  width: calc(100dvw + env(safe-area-inset-top));
   max-width: 544px;
   height: 100dvh;
 
