@@ -219,7 +219,7 @@ export default function MapPage() {
 const Categories = styled.div`
   position: absolute;
   z-index: 3;
-  margin-top: 96px;
+  margin-top: calc(env(safe-area-inset-top) * 2 - 1.5px);
   width: 100%;
   height: 52px;
   background-color: var(--white);
