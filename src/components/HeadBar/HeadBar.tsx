@@ -35,7 +35,7 @@ export default function HeadBar({
 const HeadBarFrame = styled.div`
   position: absolute;
   width: 100%;
-  min-height: 30px;
+  min-height: 48px;
   height: calc(env(safe-area-inset-top) * 2);
   top: env(safe-area-inset-top);
   left: 0;
@@ -47,7 +47,7 @@ const HeadBarFrame = styled.div`
 
 const HeadBarContext = styled.div`
   position: absolute;
-  bottom: 12px;
+  bottom: 10px;
   padding-left: 12px;
   font-size: 21px;
   font-weight: 650;
