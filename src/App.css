@@ -25,7 +25,7 @@
   width: 100dvw;
   max-width: 544px;
   height: 100dvh;
-  padding-top: var(inset-top);
+  padding-top: env(safe-area-inset-top);
 
 
   /* iOS */

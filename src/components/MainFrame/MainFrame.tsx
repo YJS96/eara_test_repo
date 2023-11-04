@@ -21,18 +21,9 @@ export default function MainFrame({
   var frame = 0;
   var marginsides = 0;
 
-  var insetTop = Number(
-    getComputedStyle(document.documentElement).getPropertyValue("--inset-top")
-  );
-
   if (headbar === "yes") {
-    if (insetTop > 0) {
-      marginTop += insetTop * 2;
-      frame += insetTop * 2;
-    } else {
-      marginTop += 48;
-      frame += 48;
-    }
+    marginTop += 96;
+    frame += 96;
   }
 
   if (navbar === "yes") {

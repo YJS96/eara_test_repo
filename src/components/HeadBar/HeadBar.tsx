@@ -22,11 +22,14 @@ export default function HeadBar({
     navigate(-1);
   };
 
+  const insetTop = Number(getComputedStyle(document.documentElement).getPropertyValue("--inset-top"))
+
+
   return (
     <HeadBarFrame style={{ backgroundColor: `var(--${bgcolor})` }}>
       <HeadBarContext>
         {backbutton === "yes" ? <LeftArrow onClick={goBack} /> : null}
-        {center ? <CenterFrame>{pagename}</CenterFrame> : <>&nbsp;{pagename}</>}
+        {center ? <CenterFrame>{pagename}</CenterFrame> : <>&nbsp;{pagename} {insetTop}</>}
       </HeadBarContext>
     </HeadBarFrame>
   );
@@ -36,8 +39,8 @@ const HeadBarFrame = styled.div`
   position: absolute;
   width: 100%;
   min-height: 48px;
-  height: calc(var(--inset-top) * 2);
-  top: var(--inset-top);
+  height: calc(env(safe-area-inset-top) * 2);
+  top: env(safe-area-inset-top);
   left: 0;
   border-bottom: 1px solid var(--gray);
   /* border: 1px black solid; */
@@ -47,7 +50,7 @@ const HeadBarFrame = styled.div`
 
 const HeadBarContext = styled.div`
   position: absolute;
-  bottom: 10px;
+  bottom: 12px;
   padding-left: 12px;
   font-size: 21px;
   font-weight: 650;
