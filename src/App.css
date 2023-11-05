@@ -23,7 +23,7 @@
   /* PC */
   width: 100dvw;
   max-width: 544px;
-  height: 100dvh;
+  height: calc(100dvh + env(safe-area-inset-bottom));
   /* padding-top: env(safe-area-inset-top); */
 
 
@@ -37,7 +37,7 @@
 
 
   position: fixed;
-  top: calc(-env(safe-area-inset-top));
+  top: calc(-env(safe-area-inset-top) - 20px);
   left: 0;
   background-color: var(--white);
   color: var(--black);
