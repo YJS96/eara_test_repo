@@ -75,17 +75,15 @@ export default function MapPage() {
 
   
   useEffect(() => {
-    if (navigator.geolocation) {
-
-      let container = document.getElementById("map"); //지도를 담을 영역의 DOM 레퍼런스
-      let options = {
+    let container = document.getElementById("map"); //지도를 담을 영역의 DOM 레퍼런스
+    let options = {
       //지도를 생성할 때 필요한 기본 옵션
       center: new window.kakao.maps.LatLng(37.5013068, 127.0396597), //지도의 중심좌표.
       level: 4, //지도의 레벨(확대, 축소 정도)
     };
 
     let map = new window.kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
-    
+
     
     const displayMarkers = () => {
       // 지도 영역을 얻어옵니다.
@@ -96,7 +94,7 @@ export default function MapPage() {
       let neLatLng = bounds.getNorthEast(); // 북동쪽 좌표를 얻어옵니다.
       
       const selectedCategory = categoryList[selectedCategoryIndex];
-      
+
       places.forEach((place) => {
         if (selectedCategory === "전체보기" || place.category === selectedCategory) {
           let position = new window.kakao.maps.LatLng(place.lat, place.lng);
@@ -104,13 +102,12 @@ export default function MapPage() {
           // 현재 지도 영역 내에 있는지 확인합니다.
           if (bounds.contain(position)) {
             // 마커를 생성하고 지도에 표시합니다.
-            
             // @ts-ignore
             let marker = new window.kakao.maps.Marker({
               map: map,
               position: position,
             });
-            
+
             var customContent = `<div class="custom-overlay">${place.name}</div>`
             // @ts-ignore
             var customOverlay = new window.kakao.maps.CustomOverlay({
@@ -119,13 +116,13 @@ export default function MapPage() {
               content: customContent,
               yAnchor: 2.6,
             })
-            
+
             // let infowindow = new window.kakao.maps.InfoWindow({
             //   map: map,
             //   position: position,
             //   content: place.name,
             // })
-            
+
             // infowindow.open(map, marker)
 
             
@@ -133,21 +130,21 @@ export default function MapPage() {
         }
       });
     };
-    
+
     // 지도 이동 시 이벤트 리스너를 등록합니다.
     window.kakao.maps.event.addListener(map, "idle", displayMarkers);
-    
+
     if (navigator.geolocation) {
       // GeoLocation을 이용해서 접속 위치를 얻어옵니다
       navigator.geolocation.getCurrentPosition(function (position) {
         var lat = position.coords.latitude, // 위도
-        lon = position.coords.longitude; // 경도
-        
+          lon = position.coords.longitude; // 경도
+
         console.log(lat, lon);
-        
+
         var locPosition = new window.kakao.maps.LatLng(lat, lon);
         map.setCenter(locPosition);
-        
+
         // 마커와 인포윈도우를 표시합니다
       });
     }
@@ -157,13 +154,12 @@ export default function MapPage() {
       var center = map.getCenter();
       console.log(
         `드래그가 끝난 후 중앙 좌표: 위도(${center.getLat()}), 경도(${center.getLng()})`
-        );
-      });
+      );
+    });
     window.kakao.maps.event.addListener(map, "idle", displayMarkers);
-    
+
     // 처음에 마커를 표시합니다.
     displayMarkers();
-    }
   }, [selectedCategoryIndex]);
 
   return (
@@ -173,9 +169,9 @@ export default function MapPage() {
         <Margin />
         {categoryList.map((category, index) => (
           <Category
-          key={index}
-          isSelected={index === selectedCategoryIndex}
-          onClick={() => handleCategoryClick(index)}
+            key={index}
+            isSelected={index === selectedCategoryIndex}
+            onClick={() => handleCategoryClick(index)}
           >
             {category}
           </Category>
@@ -219,7 +215,7 @@ export default function MapPage() {
 const Categories = styled.div`
   position: absolute;
   z-index: 3;
-  margin-top: calc(env(safe-area-inset-top) * 2 - 1.5px);
+  margin-top: 96px;
   width: 100%;
   height: 52px;
   background-color: var(--white);

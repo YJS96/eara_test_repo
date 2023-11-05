@@ -20,7 +20,6 @@
 }
 
 #root {
-  --inset-top : env(safe-area-inset-top);
   /* PC */
   width: 100dvw;
   max-width: 544px;
