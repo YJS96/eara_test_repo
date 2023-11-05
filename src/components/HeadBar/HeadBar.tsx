@@ -40,15 +40,16 @@ const HeadBarFrame = styled.div`
   height: 96px;
   left: 0;
   border-bottom: 1px solid var(--gray);;
-  margin-top: env(safe-area-inset-top);
+  /* margin-top: env(safe-area-inset-top); */
   /* border: 1px black solid; */
-
+  
   z-index: 2;
-`
+  `
 
 const HeadBarContext = styled.div`
   position: relative;
-  margin-top: 60px;
+  margin-top: env(safe-area-inset-top);
+  /* margin-top: 60px; */
   padding-left: 12px;
   font-size: 21px;
   font-weight: 650;
