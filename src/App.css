@@ -24,7 +24,8 @@
   width: 100dvw;
   max-width: 544px;
   height: 100dvh;
-  margin-top: -env(safe-area-inset-top);
+
+  /* padding-top: env(safe-area-inset-top); */
 
 
   /* iOS */
@@ -36,9 +37,10 @@
   height: 800px; */
 
 
-  position: fixed;
-  bottom: calc(-env(safe-area-inset-bottom) + 20px);
-  left: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: var(--white);
   color: var(--black);
   overflow: hidden;
@@ -51,8 +53,6 @@ body {
   -ms-use-select: none;
   user-select: none;
 }
-
-
 ::-webkit-scrollbar {
   display: none;
 }
