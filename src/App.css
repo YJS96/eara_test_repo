@@ -52,9 +52,9 @@ body {
   -ms-use-select: none;
   user-select: none;
   position: fixed;
-  top:0;
-  left:0;
-
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 
