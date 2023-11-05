@@ -23,9 +23,8 @@
   /* PC */
   width: 100dvw;
   max-width: 544px;
-  height: calc(100dvh + env(safe-area-inset-top));
+  height: 100dvh;
   /* padding-top: env(safe-area-inset-top); */
-  margin-top: -env(safe-area-inset-top);
 
 
   /* iOS */
@@ -38,7 +37,7 @@
 
 
   position: fixed;
-  top: -env(safe-area-inset-top);
+  bottom: 0;
   left : 0;
   background-color: var(--white);
   color: var(--black);
