@@ -24,7 +24,7 @@
   width: 100dvw;
   max-width: 544px;
   height: 100dvh;
-  margin-top: -env(safe-area-inset-top);
+  margin-top: calc(-env(safe-area-inset-top) - 20px);
 
 
   /* iOS */
