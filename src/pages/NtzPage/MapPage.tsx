@@ -151,7 +151,7 @@ export default function MapPage() {
         // 마커와 인포윈도우를 표시합니다
         var imageSrc = "/images/gps-my.png";
         var imageSize = new window.kakao.maps.Size(32, 32);
-        var imageOption = {offset : new window.kakao.maps.Point(15,23)};
+        var imageOption = {offset : new window.kakao.maps.Point(16,24)};
 
         var markerImage = new window.kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
 
