@@ -1,15 +1,14 @@
 // import React from 'react'
 import { useState } from "react";
 import styled from "styled-components";
-import NavBar from "../../components/NavBar/NavBar"
-import MainFrame from "../../components/MainFrame/MainFrame"
-import SearchBar from "../../components/SearchBar/SearchBar"
-import { ReactComponent as PointCircle } from "../../assets/icons/point-circle.svg"
-import { ReactComponent as GruCircle } from "../../assets/icons/gru-circle.svg"
-import { ReactComponent as BallMenu } from "../../assets/icons/ball-menu-icon.svg"
-import { ReactComponent as LeafEmpty } from "../../assets/icons/leaf-empty.svg"
-import { ReactComponent as LeafFill } from "../../assets/icons/leaf-fill.svg"
-
+import NavBar from "../../components/NavBar/NavBar";
+import MainFrame from "../../components/MainFrame/MainFrame";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import { ReactComponent as PointCircle } from "../../assets/icons/point-circle.svg";
+import { ReactComponent as GruCircle } from "../../assets/icons/gru-circle.svg";
+import { ReactComponent as BallMenu } from "../../assets/icons/ball-menu-icon.svg";
+import { ReactComponent as LeafEmpty } from "../../assets/icons/leaf-empty.svg";
+import { ReactComponent as LeafFill } from "../../assets/icons/leaf-fill.svg";
 
 export default function FeedPage() {
   const PostExample = [
@@ -22,7 +21,7 @@ export default function FeedPage() {
       gru: "200",
       img: "",
       likedUser: "일회용품뿌셔",
-      liked: 24
+      liked: 24,
     },
     {
       writerProfileImg: "",
@@ -33,15 +32,15 @@ export default function FeedPage() {
       gru: "100",
       img: "",
       likedUser: "지구구해",
-      liked: 22
-    }
+      liked: 22,
+    },
   ];
 
   const [isLiked, setIsLiked] = useState(false);
 
   const toggleLeaf = () => {
     setIsLiked(!isLiked);
-  }
+  };
 
   return (
     <>
@@ -53,7 +52,8 @@ export default function FeedPage() {
             <WriterContainer>
               <ProfileImg src={post.writerProfileImg} />
               <TextBox>
-                <Bold>{post.writerNickname}</Bold>님이 {post.time}&nbsp;<Bold>{post.act}</Bold>에 참여했어요!
+                <Bold>{post.writerNickname}</Bold>님이 {post.time}&nbsp;
+                <Bold>{post.act}</Bold>에 참여했어요!
                 <RewardContainer>
                   <PointCircle />
                   <RewardText>{post.point} 포인트 적립</RewardText>
@@ -66,8 +66,14 @@ export default function FeedPage() {
             <ContentContainer>
               <ActImg src={post.img} />
               <ReactionContainer>
-                {isLiked ? <LeafFill onClick={toggleLeaf} /> : <LeafEmpty onClick={toggleLeaf} />}
-                <ReactionText><Bold>{post.likedUser}</Bold>님 외 {post.liked}명이 좋아해요</ReactionText>
+                {isLiked ? (
+                  <LeafFill onClick={toggleLeaf} />
+                ) : (
+                  <LeafEmpty onClick={toggleLeaf} />
+                )}
+                <ReactionText>
+                  <Bold>{post.likedUser}</Bold>님 외 {post.liked}명이 좋아해요
+                </ReactionText>
               </ReactionContainer>
             </ContentContainer>
           </PostFrame>
@@ -76,12 +82,12 @@ export default function FeedPage() {
       </MainFrame>
       <NavBar />
     </>
-  )
+  );
 }
 
 const PostFrame = styled.div`
   position: relative;
-  margin-top: 52px;
+  margin-top: calc(env(safe-area-inset-top) + 52px);
   padding: 16px 0px;
   border-bottom: 0.5px solid var(--gray);
 `;
