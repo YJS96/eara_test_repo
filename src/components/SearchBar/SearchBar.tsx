@@ -142,7 +142,7 @@ const SearchResultFrame = styled.div<{ isFocused: boolean }>`
   /* border: 1px black solid; */
   visibility: ${props => (props.isFocused ? 'visible' : 'hidden')};
   opacity: ${props => (props.isFocused ? '1' : '0')};
-  transform: translateY(${props => (props.isFocused ? '0' : '20px')});
+  /* transform: translateY(${props => (props.isFocused ? '0' : '1px')}); */
   transition: visibility 0.3s, opacity 0.3s, transform 0.3s;
 `;
 
