@@ -47,6 +47,7 @@ export default function FeedPage() {
       {/* <HeadBar pagename="예시" bgcolor="white" backbutton="yes"/> */}
       <SearchBar />
       <MainFrame headbar="no" navbar="yes" bgcolor="white" marginsize="small">
+        <Margin />
         {PostExample.map((post, index) => (
           <PostFrame key={index}>
             <WriterContainer>
@@ -85,9 +86,14 @@ export default function FeedPage() {
   );
 }
 
+const Margin = styled.div`
+  position: relative;
+  height: calc(env(safe-area-inset-top) + 52px);
+  width: 100%;
+`
+
 const PostFrame = styled.div`
   position: relative;
-  margin-top: calc(env(safe-area-inset-top) + 52px);
   padding: 16px 0px;
   border-bottom: 0.5px solid var(--gray);
 `;
