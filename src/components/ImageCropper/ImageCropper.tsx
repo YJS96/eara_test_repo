@@ -77,14 +77,16 @@ const ImageCropper = ({ onCrop, children }: CropProps) => {
 
   return (
     <Container>
-      <input
+      <ImageInput
         type="file"
+        id="file"
         accept="image/*"
         ref={inputRef}
         style={{ display: "none" }}
         onChange={handleFileChange}
       />
-      <span onClick={handleChildrenClick}>{children}</span>
+      <InputLabel htmlFor="file">{children}</InputLabel>
+      {/* <span onClick={handleChildrenClick}>{children}</span> */}
       <AnimationModal isOpen={isOpen} closeModal={handleCancleClick}>
         <ModalTitle>이미지 편집하기</ModalTitle>
         <IconFrame>
@@ -135,6 +137,30 @@ const Container = styled.div`
   border: 1px solid var(--gray);
   position: relative;
   width: 100%;
+`;
+
+const ImageInput = styled.input`
+  position: relative;
+  width: 100%;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  z-index: 2;
+`
+
+const InputLabel = styled.label`
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    cursor: pointer;
+  }
+  overflow: hidden;
+  z-index: 3;
 `;
 
 const ModalTitle = styled.div`
