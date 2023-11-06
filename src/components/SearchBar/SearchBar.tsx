@@ -99,7 +99,7 @@ const CancelButton = styled.div<{isFocused : Boolean}>`
 const SearchResultFrame = styled.div<{ isFocused: boolean }>`
   position: absolute;
   width: 100%;
-  top: calc(env(safe-area-inset-top) + 53px);
+  margin-top: calc(env(safe-area-inset-top) + 53px);
   height: calc(100% - 76px - 53px);
   z-index: 1;
   background-color: var(--white);
