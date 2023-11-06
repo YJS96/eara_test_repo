@@ -100,7 +100,7 @@ const ImageCropper = ({ onCrop, children }: CropProps) => {
             autoCropArea={1}
             checkOrientation={false}
             guides
-            style={{ width: "100%" }}
+            style={{ width: "calc(100% - 4px)", display: 'flex', justifyContent: 'center' }}
           />
         </div>
         <Text>Rotation: {rotation}°</Text>
@@ -180,7 +180,7 @@ const IconFrame = styled.div`
 `;
 
 const Slider = styled.input`
-  width: calc(100% - 4px);
+  width: calc(100% - 6px);
   background-color: transparent;
   accent-color: var(--primary);
   margin: 10px 0;
