@@ -139,7 +139,7 @@ export default function MapPage() {
       // GeoLocation을 이용해서 접속 위치를 얻어옵니다
       navigator.geolocation.getCurrentPosition(function (position) {
         var lat = position.coords.latitude - 0.0003482, // 위도
-          lon = position.coords.longitude - 0.0001657; // 경도
+          lon = position.coords.longitude - 0.0001957; // 경도
 
 
 
