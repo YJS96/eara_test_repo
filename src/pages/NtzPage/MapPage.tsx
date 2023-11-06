@@ -138,8 +138,8 @@ export default function MapPage() {
     if (navigator.geolocation) {
       // GeoLocation을 이용해서 접속 위치를 얻어옵니다
       navigator.geolocation.getCurrentPosition(function (position) {
-        var lat = position.coords.latitude - 0.0007722, // 위도
-          lon = position.coords.longitude - 0.00012848; // 경도
+        var lat = position.coords.latitude,
+          lon = position.coords.longitude
 
 
 
@@ -151,7 +151,7 @@ export default function MapPage() {
         // 마커와 인포윈도우를 표시합니다
         var imageSrc = "/images/gps-my.png";
         var imageSize = new window.kakao.maps.Size(32, 32);
-        var imageOption = {offset : new window.kakao.maps.Point(8,20)};
+        var imageOption = {offset : new window.kakao.maps.Point(15,23)};
 
         var markerImage = new window.kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
 
