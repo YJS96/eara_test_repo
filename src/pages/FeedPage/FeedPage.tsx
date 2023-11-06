@@ -81,6 +81,7 @@ export default function FeedPage() {
 
 const PostFrame = styled.div`
   position: relative;
+  margin-top: 52px;
   padding: 16px 0px;
   border-bottom: 0.5px solid var(--gray);
 `;

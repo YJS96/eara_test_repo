@@ -15,7 +15,7 @@
   --blue: #4A88E5;
   --yellow: #FEE227;
   --kakao-black: #351C1B;
-  --kkakao-yellow: #F9DD4A;
+  --kakao-yellow: #F9DD4A;
   
 }
 
@@ -25,7 +25,6 @@
   max-width: 544px;
   height: 100dvh;
   padding-top: env(safe-area-inset-top);
-
 
   /* iOS */
   /* width: 390px;

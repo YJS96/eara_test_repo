@@ -65,7 +65,6 @@ export default function ReportPage() {
   const [activityDetail, setActivityDetail] = useState("");
   const [imgSelectorOpen, setImgSelectorOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // @ts-ignore
   const [friend, setFriend] = useState("");
   const [friendModalOpen, setFriendModalOpen] = useState(false);
   const [croppedImage, setCroppedImage] = useState<string | null>(null);
@@ -78,10 +77,8 @@ export default function ReportPage() {
     const nowInput = e.target.value;
     if (nowInput.length < 21) {
       setActivityDetail(nowInput);
-      // @ts-ignore
       setDetailLen(false);
     } else {
-      // @ts-ignore
       setDetailLen(true);
     }
   }

@@ -7,7 +7,6 @@ import ImageCropper from "../../components/ImageCropper/ImageCropper";
 import { ShortButton, LongButton, ButtonFrame } from "../../style";
 
 export default function PostPage() {
-  // @ts-ignore
   const [type, setType] = useState(0);
   const [croppedImage, setCroppedImage] = useState<string | null>(null);
   const [isRegist, setIsRegist] = useState(false);

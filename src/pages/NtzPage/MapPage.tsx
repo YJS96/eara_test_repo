@@ -109,6 +109,7 @@ export default function MapPage() {
             });
 
             var customContent = `<div class="custom-overlay">${place.name}</div>`
+            
             // @ts-ignore
             var customOverlay = new window.kakao.maps.CustomOverlay({
               map: map,
