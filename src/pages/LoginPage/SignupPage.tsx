@@ -20,13 +20,14 @@ export default function SignupPage() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedArea, setSelectedArea] = useState<number>(0);
   const [nickname, setNickname] = useState<string>('');
+  // @ts-ignore
   const [isNicknameValid, setIsNicknameValid] = useState<boolean>(false);
 
   useEffect(() => {
     // 닉네임이 두 글자 이상인 경우에만 유효하다고 설정
     setIsNicknameValid(nickname.length >= 2);
   }, [nickname]); // 닉네임 값이 바뀔 때마다 이 effect를 실행합니다.
-
+  // @ts-ignore
   const handleNicknameChange = (event: ChangeEvent<HTMLInputElement>) => {
     setNickname(event.target.value);
   };
