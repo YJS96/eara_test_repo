@@ -26,10 +26,6 @@ const ImageCropper = ({ onCrop, children }: CropProps) => {
     }
   }, [isOpen]);
 
-  const handleChildrenClick = () => {
-    if (inputRef.current) inputRef.current.click();
-  };
-
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
 
