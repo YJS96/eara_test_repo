@@ -22,7 +22,9 @@ const ImageCropper = ({ onCrop, children }: CropProps) => {
 
   useEffect(() => {
     if (isOpen === false) {
-      setTimeout(() => {setImage(null)}, 260);
+      setTimeout(() => {
+        setImage(null);
+      }, 260);
     }
   }, [isOpen]);
 
@@ -45,6 +47,10 @@ const ImageCropper = ({ onCrop, children }: CropProps) => {
     setIsOpen(false);
     setRotation(0);
   };
+
+  // const handleChildrenClick = () => {
+  //   if (inputRef.current) inputRef.current.click();
+  // };
 
   const getCropData = () => {
     if (typeof cropperRef.current?.cropper !== "undefined") {
@@ -100,7 +106,11 @@ const ImageCropper = ({ onCrop, children }: CropProps) => {
             autoCropArea={1}
             checkOrientation={false}
             guides
-            style={{ width: "calc(100% - 4px)", display: 'flex', justifyContent: 'center' }}
+            style={{
+              width: "calc(100% - 4px)",
+              display: "flex",
+              justifyContent: "center",
+            }}
           />
         </div>
         <Text>Rotation: {rotation}°</Text>
@@ -144,7 +154,7 @@ const ImageInput = styled.input`
   clip: rect(0, 0, 0, 0);
   border: 0;
   z-index: 2;
-`
+`;
 
 const InputLabel = styled.label`
   position: relative;
@@ -180,7 +190,7 @@ const IconFrame = styled.div`
 `;
 
 const Slider = styled.input`
-  width: calc(100% - 6px);
+  width: calc(100% - 4px);
   background-color: transparent;
   accent-color: var(--primary);
   margin: 10px 0;
