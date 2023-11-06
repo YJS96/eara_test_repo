@@ -94,7 +94,7 @@ export default function MapPage() {
       let neLatLng = bounds.getNorthEast(); // 북동쪽 좌표를 얻어옵니다.
       
       const selectedCategory = categoryList[selectedCategoryIndex];
-
+      
       places.forEach((place) => {
         if (selectedCategory === "전체보기" || place.category === selectedCategory) {
           let position = new window.kakao.maps.LatLng(place.lat, place.lng);
@@ -147,6 +147,18 @@ export default function MapPage() {
         map.setCenter(locPosition);
 
         // 마커와 인포윈도우를 표시합니다
+        var imageSrc = "/images/gps-my.png";
+        var imageSize = new window.kakao.maps.Size(32, 32);
+        var imageOption = {offset : new window.kakao.maps.Point(8,20)};
+
+        var markerImage = new window.kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
+
+        var marker = new window.kakao.maps.Marker({
+          position: locPosition,
+          image: markerImage
+        })
+
+        marker.setMap(map);
       });
     }
 
@@ -264,7 +276,7 @@ const MapAndModal = styled.div`
 const MapFrame = styled.div`
   position: relative;
   width: 100%;
-  height: 57%;
+  height: 54%;
   background-color: var(--white);
 `;
 

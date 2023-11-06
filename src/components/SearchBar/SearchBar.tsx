@@ -126,8 +126,8 @@ const CancelButton = styled.div<{isFocused : Boolean}>`
   font-weight: 400;
   right: -24px; // Adjust this value as needed
   right: ${props => (props.isFocused ? '18px' : '-24px')};
-  opacity: ${props => (props.isFocused ? '1' : '0')}; // Fade in/out based on focus
-  visibility: ${props => (props.isFocused ? 'visible' : 'hidden')}; // Hide button when not focused
+  opacity: ${props => (props.isFocused ? '1' : '0')};
+  visibility: ${props => (props.isFocused ? 'visible' : 'hidden')};
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, right 0.3s ease-in-out;
 `;
 
@@ -139,10 +139,8 @@ const SearchResultFrame = styled.div<{ isFocused: boolean }>`
   height: calc(100% - 76px - 53px);
   z-index: 1;
   background-color: var(--white);
-  /* border: 1px black solid; */
   visibility: ${props => (props.isFocused ? 'visible' : 'hidden')};
   opacity: ${props => (props.isFocused ? '1' : '0')};
-  /* transform: translateY(${props => (props.isFocused ? '0' : '1px')}); */
   transition: visibility 0.3s, opacity 0.3s, transform 0.3s;
 `;
 
