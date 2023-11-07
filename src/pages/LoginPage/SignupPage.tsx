@@ -70,8 +70,15 @@ export default function SignupPage() {
           <NicknameFrame>
             <InfoName>닉네임</InfoName>
             <NicknameCheck>
-              <NicknameInput type="text" maxLength={8} value={nickname} onChange={handleNicknameChange} />
-              <CheckButton isNicknameValid={nickname.length >= 2}>중복확인</CheckButton>
+              <NicknameInput
+                type="text"
+                maxLength={8}
+                value={nickname}
+                onChange={handleNicknameChange}
+              />
+              <CheckButton isNicknameValid={nickname.length >= 2}>
+                중복확인
+              </CheckButton>
             </NicknameCheck>
           </NicknameFrame>
         </ProfileNickname>
@@ -122,9 +129,7 @@ export default function SignupPage() {
           그린
         </InitialGreen>
         <InfoName>추천인</InfoName>
-        <InitialGreen>
-          QKF4FDL
-        </InitialGreen>
+        <InitialGreen>QKF4FDL</InitialGreen>
         <SignupFrame>
           <SignupButton>가입하기</SignupButton>
           <Terms>
@@ -228,11 +233,11 @@ const NicknameCheck = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-`
+`;
 
 const NicknameInput = styled.input`
   position: relative;
-  width: calc(100% - 66px);
+  width: calc(100% - 72px);
   height: 100%;
   border: none;
   background-color: var(--white);
@@ -240,6 +245,7 @@ const NicknameInput = styled.input`
   font-size: 17px;
   font-weight: 400;
   border-radius: 0px !important;
+  padding-left: 0px;
   &:focus {
     border-bottom: 1.5px solid var(--primary);
     outline: none;
@@ -257,12 +263,13 @@ const NicknameInput = styled.input`
 const CheckButton = styled.div<{ isNicknameValid: boolean }>`
   margin-bottom: 4px;
   color: var(--dark-gray);
-  color: ${({ isNicknameValid }) => isNicknameValid ? "var(--primary)" : "var(--dark-gray)"};
-  transition: color 0.3 ease-in-out ;
+  color: ${({ isNicknameValid }) =>
+    isNicknameValid ? "var(--primary)" : "var(--dark-gray)"};
+  transition: color 0.3 ease-in-out;
   font-size: 14.5px;
   font-weight: 500;
   white-space: nowrap;
-`
+`;
 
 const GenderButtonFrame = styled.div`
   position: relative;
