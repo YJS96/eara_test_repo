@@ -323,6 +323,10 @@ const DropdownAreas = styled.div<DropdownProps>`
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.08);
   overflow-y: scroll;
   overflow-x: hidden;
+
+  ::-webkit-scrollbar {
+  display: block;
+  }
 `;
 
 const OneArea = styled.div`
