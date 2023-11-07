@@ -18,7 +18,6 @@ const ImageCropper = ({ onCrop, children }: CropProps) => {
   const cropperRef = useRef<ReactCropperElement>(null);
   const [image, setImage] = useState<null | string>(null);
   const [rotation, setRotation] = useState(0);
-  const [marginValue, setMarginValue] = useState(-8);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -65,11 +64,6 @@ const ImageCropper = ({ onCrop, children }: CropProps) => {
       if (degrees >= 0) {
         cropperRef.current?.cropper.rotate(degrees - rotation);
         setRotation(degrees);
-        if (degrees < 334) {
-          setMarginValue(degrees/3.6 - 8.65);
-        } else {
-          setMarginValue(84);
-        }
       } else {
         cropperRef.current?.cropper.rotate(degrees);
       }
@@ -119,9 +113,7 @@ const ImageCropper = ({ onCrop, children }: CropProps) => {
             }}
           />
         </div>
-        <TextFrame>
-          <Text left={marginValue}>{rotation}°</Text>
-        </TextFrame>
+        <Text>Rotation: {rotation}°</Text>
         <Slider
           type="range"
           min="0"
@@ -183,15 +175,10 @@ const ModalTitle = styled.div`
   text-align: center;
 `;
 
-const TextFrame = styled.div`
-  width: 100%;
-`
-const Text = styled.div<{left: number}>`
+const Text = styled.div`
   font-size: 15px;
-  width: 48px;
-  text-align: end;
   font-weight: 400;
-  margin-left: ${(props) => `${props.left}%`};
+  width: 100%;
 `;
 
 const IconFrame = styled.div`

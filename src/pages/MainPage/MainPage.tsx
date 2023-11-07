@@ -11,18 +11,6 @@ import { ReactComponent as Notification } from "../../assets/icons/notification-
 export default function MainPage() {
   const navigate = useNavigate();
 
-  const toLogin = () => {
-    navigate("/login")
-  }
-
-  const toSignup = () => {
-    navigate("/signup")
-  }
-
-  const toWelcome = () => {
-    navigate("/welcome")
-  }
-
   const toNotification = () => {
     navigate("/notice");
   };
@@ -111,10 +99,6 @@ export default function MainPage() {
     <>
       <MainFrame headbar="no" navbar="yes" bgcolor="third" marginsize="no">
         <NotificationIcon onClick={toNotification} />
-        <br/><br/><br/><br/><br/>
-        <div onClick={toLogin}>로그인페이지</div><br/><br/>
-        <div onClick={toSignup}>회원가입페이지</div><br/><br/>
-        <div onClick={toWelcome}>테스트페이지</div><br/><br/>
         <HomeFrame>
           <ShowDate>10월 23일 기준</ShowDate>
           <NicknameLine>
