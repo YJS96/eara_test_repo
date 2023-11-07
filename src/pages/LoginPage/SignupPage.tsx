@@ -192,6 +192,7 @@ const ProfileImage = styled.img`
   width: 100%;
   height: 100%;
   border-radius: 100px;
+  object-fit: cover;
   /* border: 1px solid var(--nav-gray); */
 `;
 
@@ -222,8 +223,8 @@ const InfoName = styled.div`
 
 const NicknameCheck = styled.div`
   position: relative;
-  height: 32px;
-  margin-top: 5px;
+  height: 30px;
+  margin-top: 8px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -233,7 +234,6 @@ const NicknameInput = styled.input`
   position: relative;
   width: calc(100% - 62px);
   position: relative;
-  margin-top: 6px;
   height: 100%;
   border: none;
   background-color: var(--white);
@@ -261,6 +261,7 @@ const CheckButton = styled.div<{ isNicknameValid: boolean }>`
   transition: color 0.3 ease-in-out ;
   font-size: 14.5px;
   font-weight: 500;
+  white-space: nowrap;
 `
 
 const GenderButtonFrame = styled.div`
@@ -314,6 +315,7 @@ const DropdownAreas = styled.div<DropdownProps>`
   border-radius: 0px 0px 10px 10px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.08);
   overflow-y: scroll;
+  overflow-x: hidden;
 `;
 
 const OneArea = styled.div`

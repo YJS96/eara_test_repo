@@ -18,7 +18,7 @@ const ImageCropper = ({ onCrop, children }: CropProps) => {
   const cropperRef = useRef<ReactCropperElement>(null);
   const [image, setImage] = useState<null | string>(null);
   const [rotation, setRotation] = useState(0);
-  const [marginValue, setMarginValue] = useState(-8.65);
+  const [marginValue, setMarginValue] = useState(-8);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
