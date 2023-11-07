@@ -324,8 +324,8 @@ const DropdownAreas = styled.div<DropdownProps>`
   overflow-y: scroll;
   overflow-x: hidden;
 
-  ::-webkit-scrollbar {
-  display: block;
+  &::-webkit-scrollbar {
+    display: block;
   }
 `;
 
