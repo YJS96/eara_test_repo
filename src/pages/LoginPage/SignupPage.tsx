@@ -223,8 +223,8 @@ const InfoName = styled.div`
 
 const NicknameCheck = styled.div`
   position: relative;
-  height: 30px;
-  margin-top: 8px;
+  height: 24px;
+  margin-top: 12px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -232,14 +232,14 @@ const NicknameCheck = styled.div`
 
 const NicknameInput = styled.input`
   position: relative;
-  width: calc(100% - 62px);
-  position: relative;
+  width: calc(100% - 66px);
   height: 100%;
   border: none;
   background-color: var(--white);
   border-bottom: 1.5px solid var(--nav-gray);
   font-size: 17px;
   font-weight: 400;
+  border-radius: 0px !important;
   &:focus {
     border-bottom: 1.5px solid var(--primary);
     outline: none;
