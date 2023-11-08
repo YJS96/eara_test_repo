@@ -67,5 +67,6 @@ const Main = styled.div`
   background-color: var(--white);
   color: var(--black);
   overflow-x: hidden;
+  touch-action: none;
   overflow-y: scroll;
 `;
