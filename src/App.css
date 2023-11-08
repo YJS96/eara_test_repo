@@ -41,7 +41,6 @@
   transform: translate(-50%, -50%);
   background-color: var(--white);
   color: var(--black);
-  overflow: hidden;
 }
 
 body {
@@ -50,6 +49,7 @@ body {
   -moz-user-select: none;
   -ms-use-select: none;
   user-select: none;
+  overflow: hidden;
 }
 ::-webkit-scrollbar {
   display: none;
