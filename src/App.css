@@ -42,6 +42,7 @@
   background-color: var(--white);
   color: var(--black);
   overflow: hidden;
+  touch-action: none;
 }
 
 body {
@@ -50,6 +51,7 @@ body {
   -moz-user-select: none;
   -ms-use-select: none;
   user-select: none;
+  touch-action: none;
 }
 ::-webkit-scrollbar {
   display: none;
