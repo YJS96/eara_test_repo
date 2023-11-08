@@ -23,8 +23,7 @@
   /* PC */
   width: 100vw;
   max-width: 544px;
-  height: calc(100vh + env(safe-area-inset-bottom));
-  padding-top: env(safe-area-inset-top);
+  height: 100vh;
 
   position: fixed;
   top: 50%;
