@@ -21,10 +21,15 @@
 
 #root {
   /* PC */
-  height: env(safe-area-inset-top);
-  width: env(safe-area-inset-left);
-  margin: env(safe-area-inset-right);
-  padding: env(safe-area-inset-bottom, 20px);
+  width: 100vw;
+  max-width: 544px;
+  height: calc(100vh + env(safe-area-inset-bottom));
+  padding-top: env(safe-area-inset-top);
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: var(--white);
   color: var(--black);
   overflow: hidden;
