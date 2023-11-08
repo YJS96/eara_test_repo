@@ -21,10 +21,9 @@
 
 #root {
   /* PC */
-  width: 100dvw;
+  width: 100%;
   max-width: 544px;
-  height: 100dvh;
-  padding-top: env(safe-area-inset-top);
+  height: 100%;
 
   /* iOS */
   /* width: 390px;
@@ -35,16 +34,23 @@
   height: 800px; */
 
 
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
   background-color: var(--white);
   color: var(--black);
   overflow: hidden;
 }
 
 body {
+  position: absolute;
+  width: 100dvw;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  padding-top: env(safe-area-inset-top);
+
+  overflow: hidden;
   -ms-overflow-style: none;
   -webkit-user-select: none;
   -moz-user-select: none;
