@@ -2,7 +2,6 @@
   background-color: var(--black);
   /* PC */
   width: 100dvw;
-  max-width: 544px;
   height: 100dvh;
   padding-top: env(safe-area-inset-top);
 
@@ -15,8 +14,6 @@
     height: 800px; */
 
   position: fixed;
-  background-color: var(--white);
   color: var(--black);
   overflow: hidden;
-  touch-action: none;
 }
