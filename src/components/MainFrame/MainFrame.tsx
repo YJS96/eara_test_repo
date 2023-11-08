@@ -22,8 +22,8 @@ export default function MainFrame({
   var marginsides = 0;
 
   if (headbar === "yes") {
-    marginTop += 96;
-    frame += 96;
+    marginTop += 48;
+    frame += 48;
   }
 
   if (navbar === "yes") {
@@ -45,8 +45,8 @@ export default function MainFrame({
     <Main
       style={{
         backgroundColor: `var(--${bgcolor})`,
-        height: `calc(100% - ${frame}px)`,
-        marginTop: `${marginTop}px`,
+        height: `calc(100% - ${frame}px - env(safe-area-inset-top))`,
+        marginTop: `calc(env(safe-area-inset-top) + ${marginTop}px)`,
         marginBottom: `${marginBottom}px`,
         // paddingLeft: `${marginsides}%`,
         // paddingRight: `${marginsides}%`,
