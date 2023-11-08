@@ -20,13 +20,10 @@ export default function MainFrame({
   var marginBottom = 0;
   var frame = 0;
   var marginsides = 0;
-  const insetTop = getComputedStyle(document.documentElement).getPropertyValue("--sat")
-
-
 
   if (headbar === "yes") {
-    marginTop += 48
-    frame += 48
+    marginTop += 96;
+    frame += 96;
   }
 
   if (navbar === "yes") {
@@ -53,11 +50,10 @@ export default function MainFrame({
         marginBottom: `${marginBottom}px`,
         // paddingLeft: `${marginsides}%`,
         // paddingRight: `${marginsides}%`,
-        padding: `0 ${marginsides}%`,
+        padding: `0px ${marginsides}%`,
       }}
     >
       {children}
-      {insetTop.toString()}
     </Main>
   );
 }
@@ -68,6 +64,7 @@ const Main = styled.div`
   left: 0;
   right: 0;
   height: 100%;
+  background-color: var(--white);
   color: var(--black);
   overflow-x: hidden;
   overflow-y: scroll;
