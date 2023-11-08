@@ -50,7 +50,7 @@ body {
   -moz-user-select: none;
   -ms-use-select: none;
   user-select: none;
-  padding-top: env(safe-area-inset-top);
+  /* padding-top: env(safe-area-inset-top); */
 
 }
 ::-webkit-scrollbar {
