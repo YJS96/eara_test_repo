@@ -4,7 +4,7 @@
   width: 100dvw;
   max-width: 544px;
   height: 100dvh;
-
+  padding-top: env(safe-area-inset-top);
 
   /* iOS */
   /* width: 390px;
@@ -15,7 +15,9 @@
     height: 800px; */
 
   position: fixed;
-
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: var(--white);
   color: var(--black);
   overflow: hidden;
