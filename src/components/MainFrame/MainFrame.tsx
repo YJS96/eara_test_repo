@@ -51,7 +51,7 @@ export default function MainFrame({
         marginBottom: `${marginBottom}px`,
         // paddingLeft: `${marginsides}%`,
         // paddingRight: `${marginsides}%`,
-        padding: `0px ${marginsides}%`,
+        padding: `env(safe-area-inset-top) ${marginsides}%`,
       }}
     >
       {children}
