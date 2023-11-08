@@ -47,8 +47,10 @@ body {
   display: flex;
   justify-content: center;
   overflow: hidden;
+  padding-top: env(safe-area-inset-top);
 
-  
+
+
   -ms-overflow-style: none;
   -webkit-user-select: none;
   -moz-user-select: none;
