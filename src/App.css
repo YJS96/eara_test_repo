@@ -41,7 +41,6 @@
   transform: translate(-50%, -50%);
   background-color: var(--white);
   color: var(--black);
-  overflow: hidden;
 }
 
 body {
