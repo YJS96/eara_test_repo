@@ -5,10 +5,10 @@ import { useEffect } from "react";
 
 function App() {
   const body = document.querySelector("body") as HTMLElement;
-  const root = document.querySelector("root") as HTMLElement
+  // const root = document.querySelector("root") as HTMLElement
   useEffect(() => {
     disableBodyScroll(body);
-    disableBodyScroll(root);
+    // disableBodyScroll(root);
   }, []);
 
   return (
