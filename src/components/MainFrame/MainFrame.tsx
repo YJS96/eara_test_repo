@@ -22,9 +22,11 @@ export default function MainFrame({
   var marginsides = 0;
   const insetTop = getComputedStyle(document.documentElement).getPropertyValue("--sat")
 
+
+
   if (headbar === "yes") {
-    marginTop += 48 + Number(insetTop);
-    frame += 48 + Number(insetTop);
+    marginTop += 48
+    frame += 48
   }
 
   if (navbar === "yes") {
@@ -54,7 +56,7 @@ export default function MainFrame({
         padding: `env(safe-area-inset-top) ${marginsides}%`,
       }}
     >
-      {children}
+    {insetTop}  {children}
     </Main>
   );
 }
