@@ -21,10 +21,10 @@
 
 #root {
   /* PC */
-  width: 100dvw;
+
   max-width: 544px;
-  height: 100dvh;
-  /* padding-top: env(safe-area-inset-top); */
+
+  padding-top: env(safe-area-inset-top);
 
   /* iOS */
   /* width: 390px;
@@ -36,9 +36,10 @@
 
 
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  bottom : 0;
+  left: 0;
+  right: 0;
   background-color: var(--white);
   color: var(--black);
   overflow: hidden;
