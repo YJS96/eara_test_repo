@@ -24,7 +24,7 @@
   width: 100dvw;
   max-width: 544px;
   height: 100dvh;
-  padding-top: env(safe-area-inset-top);
+  /* padding-top: env(safe-area-inset-top); */
 
   /* iOS */
   /* width: 390px;
@@ -34,14 +34,12 @@
   /* width: 360px;
   height: 800px; */
 
-
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: var(--white);
   color: var(--black);
-  overflow: hidden;
 }
 
 body {
@@ -50,7 +48,8 @@ body {
   -moz-user-select: none;
   -ms-use-select: none;
   user-select: none;
-  /* padding-top: env(safe-area-inset-top); */
+  padding-top: env(safe-area-inset-top);
+  overflow: hidden;
 
 }
 ::-webkit-scrollbar {
