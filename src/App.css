@@ -24,8 +24,6 @@
   width: 100dvw;
   max-width: 544px;
   height: 100vh;
-  /* padding-top: env(safe-area-inset-top); */
-
   /* iOS */
   /* width: 390px;
   height: 852px; */
@@ -34,6 +32,7 @@
   /* width: 360px;
   height: 800px; */
 
+  /* padding-top: env(safe-area-inset-top); */
 
   position: absolute;
   top: 0;
@@ -42,7 +41,6 @@
   bottom: 0;
   background-color: var(--white);
   color: var(--black);
-  overflow: hidden;
 }
 
 body {
@@ -51,6 +49,8 @@ body {
   -moz-user-select: none;
   -ms-use-select: none;
   user-select: none;
+    /* margin-top: -env(safe-area-inset-top); */
+    overflow: hidden;
 }
 ::-webkit-scrollbar {
   display: none;
