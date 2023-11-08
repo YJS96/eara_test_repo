@@ -40,6 +40,8 @@
   bottom: 0;
   background-color: var(--white);
   color: var(--black);
+  --sat: env(safe-area-inset-top);
+
 }
 
 body {

@@ -20,10 +20,11 @@ export default function MainFrame({
   var marginBottom = 0;
   var frame = 0;
   var marginsides = 0;
+  const insetTop = getComputedStyle(document.documentElement).getPropertyValue("--sat")
 
   if (headbar === "yes") {
-    marginTop += 48;
-    frame += 48;
+    marginTop += 48 + Number(insetTop);
+    frame += 48 + Number(insetTop);
   }
 
   if (navbar === "yes") {
@@ -45,8 +46,8 @@ export default function MainFrame({
     <Main
       style={{
         backgroundColor: `var(--${bgcolor})`,
-        height: `calc(100% - ${frame}px - env(safe-area-inset-top))`,
-        marginTop: `calc(env(safe-area-inset-top) + ${marginTop}px)`,
+        height: `calc(100% - ${frame}px)`,
+        marginTop: `${marginTop}px`,
         marginBottom: `${marginBottom}px`,
         // paddingLeft: `${marginsides}%`,
         // paddingRight: `${marginsides}%`,
