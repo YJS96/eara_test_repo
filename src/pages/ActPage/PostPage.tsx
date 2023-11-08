@@ -74,7 +74,7 @@ export default function PostPage() {
             {croppedImage ? (
               <CropImg src={croppedImage} alt="Cropped" />
             ) : (
-              <ImgIcon src="/images/upload-image.png" />
+              <ImgIcon src="/public/images/upload-image.png" />
             )}
           </ImageCropper>
         </div>
