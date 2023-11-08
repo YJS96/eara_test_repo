@@ -56,7 +56,8 @@ export default function MainFrame({
         padding: `env(safe-area-inset-top) ${marginsides}%`,
       }}
     >
-    {insetTop}  {children}
+      {children}
+      {insetTop.toString()}
     </Main>
   );
 }
