@@ -50,7 +50,7 @@ body {
   user-select: none;
   position: absolute;
   margin: 0;
-  margin-top: -env(safe-area-inset-top);
+  /* margin-top: -env(safe-area-inset-top); */
   overflow: hidden;
 }
 ::-webkit-scrollbar {
