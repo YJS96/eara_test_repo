@@ -65,7 +65,6 @@ const Main = styled.div`
   left: 0;
   right: 0;
   height: 100%;
-  background-color: var(--white);
   color: var(--black);
   overflow-x: hidden;
   overflow-y: scroll;
