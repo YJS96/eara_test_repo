@@ -41,6 +41,7 @@
   background-color: var(--white);
   color: var(--black);
   --sat: env(safe-area-inset-top);
+  overflow: hidden;
 }
 
 body {
