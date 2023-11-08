@@ -20,7 +20,7 @@
 
 #root {
   /* PC */
-  width: 100dvw;
+  /* width: 100dvw; */
   max-width: 544px;
   /* height: 100dvh; */
   /* iOS */
@@ -41,7 +41,7 @@
   background-color: var(--white);
   color: var(--black);
   --sat: env(safe-area-inset-top);
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 body {
