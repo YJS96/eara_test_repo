@@ -3,40 +3,40 @@ import NavBar from "../../components/NavBar/NavBar";
 import HeadBar from "../../components/HeadBar/HeadBar";
 import MainFrame from "../../components/MainFrame/MainFrame";
 import styled from "styled-components";
-import FollowBtn from "../../components/Buttons/FollowButton";
+// import FollowBtn from "../../components/Buttons/FollowButton";
 
 export default function NotiPage() {
   const NoticeExample = [
     {
-      type: 2,
+      type: "accusation",
       userNickname: "짱구는못말려",
       profileImg: "src/assets/images/jjanggu.png",
-      witnessImg: "src/assets/images/witness.png",
-      time: "방금",
+      witnessImg: "/images/template6.png",
+      creatAt: "방금",
     },
     {
       type: 1,
       userNickname: "짱구는못말려",
       profileImg: "src/assets/images/jjanggu.png",
-      isFollow: false,
+      isFollow: "경고",
       accept: false,
-      time: "2분 전",
+      creatAt: "2분 전",
     },
     {
       type: 1,
       userNickname: "나더워",
       profileImg: "src/assets/images/earth.png",
-      isFollow: true,
+      isFollow: "accept",
       accept: false,
-      time: "1일 전",
+      creatAt: "1일 전",
     },
     {
       type: 1,
       userNickname: "지뀨하기",
       profileImg: "src/assets/images/ziggu.png",
-      isFollow: true,
+      isFollow: "경고",
       accept: true,
-      time: "1일 전",
+      creatAt: "1일 전",
     },
   ];
 
@@ -60,11 +60,12 @@ export default function NotiPage() {
                 ) : (
                   <span>님이 회원님의 환경 오염 활동을 목격했어요.</span>
                 )}
-                <Time>{notice.time}</Time>
+                <Time>{notice.creatAt}</Time>
               </TextContainer>
             </LeftContainer>
             {notice.type == 1 ? (
-              <FollowBtn isFollow={notice.isFollow} />
+              // <FollowBtn status={notice.isFollow} />
+              <>"공사 중"</>
             ) : (
               <WitnessImg src={notice.witnessImg} />
             )}
@@ -88,15 +89,15 @@ const Container = styled.div`
   padding: 8px 0;
 `;
 
-const LeftContainer = styled.div<{ type: number }>`
+const LeftContainer = styled.div<{ type: number | string }>`
   display: flex;
   align-items: center;
-  width: ${(props) =>
-    props.type == 1 ? "calc(100% - 92px)" : "calc(100% - 60px)"};
+  /* width: ${(props) =>
+    props.type == 1 ? "calc(100% - 92px)" : "calc(100% - 60px)"}; */
 `;
 
 const ProfileImg = styled.img`
-  height: 50px;
+  height: 48px;
   border-radius: 50%;
   border: 0.5px solid var(--nav-gray);
   margin-right: 4%;
