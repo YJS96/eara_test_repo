@@ -285,7 +285,7 @@ const ETC = styled.img`
 const Report = styled.img`
   position: absolute;
   height: 48%;
-  right: 8.4%;
+  right: 11.2%;
   bottom: 9.38%; 
   z-index: 0;
 `
