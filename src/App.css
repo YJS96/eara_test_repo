@@ -21,9 +21,9 @@
 
 #root {
   /* PC */
-  width: 100vw;
+  width: 100dvw;
   max-width: 544px;
-  height: var(--vh, 1vh);
+  height: 100dvh;
   padding-top: env(safe-area-inset-top);
 
   /* iOS */
