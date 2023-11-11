@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import NavBar from "../../components/NavBar/NavBar";
 import MainFrame from "../../components/MainFrame/MainFrame";
@@ -5,24 +6,23 @@ import { ModalFrame } from "../../components/Modal/ModalFrame";
 import ProgressBar from "../../components/ProgressBar/ProgressBar";
 import { ShortButton } from "../../style";
 import { useNavigate } from "react-router-dom";
-
 import { ReactComponent as Notification } from "../../assets/icons/notification-icon.svg";
 
 export default function MainPage() {
   const navigate = useNavigate();
 
   const toLogin = () => {
-    navigate("/login")
-  }
-  
+    navigate("/login");
+  };
+
   const toSignup = () => {
-    navigate("/signup")
-  }
-  
+    navigate("/signup");
+  };
+
   const toWelcome = () => {
-    navigate("/welcome")
-  }
-  
+    navigate("/welcome");
+  };
+
   const toNotification = () => {
     navigate("/notice");
   };
@@ -66,34 +66,34 @@ export default function MainPage() {
 
   const groo_saving_list = [
     {
-        "date": "2023-11-5",
-        "proof_count": 1
+      date: "2023-11-5",
+      proof_count: 1,
     },
     {
-        "date": "2023-11-6",
-        "proof_count": 0
+      date: "2023-11-6",
+      proof_count: 0,
     },
     {
-        "date": "2023-11-7",
-        "proof_count": 2
+      date: "2023-11-7",
+      proof_count: 2,
     },
     {
-        "date": "2023-11-8",
-        "proof_count": 0
+      date: "2023-11-8",
+      proof_count: 0,
     },
     {
-        "date": "2023-11-9",
-        "proof_count": 4
+      date: "2023-11-9",
+      proof_count: 4,
     },
     {
-        "date": "2023-11-10",
-        "proof_count": 1
+      date: "2023-11-10",
+      proof_count: 1,
     },
     {
-        "date": "2023-11-11",
-        "proof_count": 2
-    }
-]
+      date: "2023-11-11",
+      proof_count: 2,
+    },
+  ];
 
   const getCountColor = (count: number): string => {
     if (count === 0) {
@@ -107,14 +107,63 @@ export default function MainPage() {
     }
   };
 
+  const [isInstallable, setIsInstallable] = useState(false);
+  let deferredPrompt : any;
+
+  useEffect(() => {
+    window.addEventListener("beforeinstallprompt", (e) => {
+      // Prevent the mini-infobar from appearing on mobile
+      e.preventDefault();
+      // Stash the event so it can be triggered later.
+      deferredPrompt = e;
+      // Update UI notify the user they can install the PWA
+      setIsInstallable(true);
+    });
+
+    window.addEventListener("appinstalled", () => {
+      // Hide the app-provided install promotion
+      setIsInstallable(false);
+      // Clear the deferredPrompt so it can be garbage collected
+      deferredPrompt = null;
+      // Optionally, send analytics event that PWA was installed
+      console.log("PWA was installed");
+    });
+  }, []);
+
+  const handleInstallClick = async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      console.log(`User response to the install prompt: ${outcome}`);
+      deferredPrompt = null;
+    }
+  };
+
   return (
     <>
       <MainFrame headbar="no" navbar="yes" bgcolor="third" marginsize="no">
-    <br/><br/><br/><br/><br/><br/><br/>
-      <div onClick={toLogin}>로그인 페이지</div><br/><br/>
-      <div onClick={toSignup}>회원가입 페이지</div><br/><br/>
-      <div onClick={toWelcome}>테스트 페이지</div><br/><br/>
-        <NotificationIcon onClick={toNotification} />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div onClick={toLogin}>로그인 페이지</div>
+        <br />
+        <br />
+        <div onClick={toSignup}>회원가입 페이지</div>
+        <br />
+        <br />
+        <div onClick={toWelcome}>테스트 페이지</div>
+        <br />
+        <br />
+        <UpperBar>
+          {isInstallable && (
+            <DownloadApp onClick={handleInstallClick}>앱 다운로드</DownloadApp>
+          )}
+          <NotificationIcon onClick={toNotification} />
+        </UpperBar>
         <HomeFrame>
           <ShowDate>10월 23일 기준</ShowDate>
           <NicknameLine>
@@ -141,7 +190,9 @@ export default function MainPage() {
             {onlyDay.map((day, index) => (
               <OneDay>
                 <DayNumber>{day}</DayNumber>
-                <DayProgress count={getCountColor(groo_saving_list[index].proof_count)} />
+                <DayProgress
+                  count={getCountColor(groo_saving_list[index].proof_count)}
+                />
               </OneDay>
             ))}
           </WeekdayFrame>
@@ -163,10 +214,27 @@ export default function MainPage() {
   );
 }
 
-const NotificationIcon = styled(Notification)`
+const UpperBar = styled.div`
   position: absolute;
+  left: 5.56%;
   right: 5.56%;
+  height: 26px;
   top: max(env(safe-area-inset-top), 24px);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+`;
+
+const DownloadApp = styled.div`
+  margin-right: 12px;
+  margin-top: 3px;
+  font-size: 14px;
+  font-weight: 400;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+`;
+
+const NotificationIcon = styled(Notification)`
+  position: relative;
   filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.12));
 `;
 
