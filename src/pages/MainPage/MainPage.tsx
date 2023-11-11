@@ -129,11 +129,11 @@ export default function MainPage() {
     }
     // @ts-ignore
     promptInstall.prompt();
+    if (!supportsPWA) {
+      return null;
+    }
   };
-  if (!supportsPWA) {
-    return null;
-  }
-
+    
   return (
     <>
       <MainFrame headbar="no" navbar="yes" bgcolor="third" marginsize="no">
