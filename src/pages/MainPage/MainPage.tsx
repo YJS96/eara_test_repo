@@ -107,24 +107,32 @@ export default function MainPage() {
     }
   };
 
-  const [deferredPrompt, setDefferedPrompt] = useState(null);
-
-  const handleBeforeInstallPrompt = (event: any) => {
-    event.preventDefault();
-
-    setDefferedPrompt(event);
-  };
+  const [supportsPWA, setSupportsPWA] = useState(false);
+  const [promptInstall, setPromptInstall] = useState(null);
 
   useEffect(() => {
-    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
-
-    return () => {
-      window.removeEventListener(
-        "beforeinstallprompt",
-        handleBeforeInstallPrompt
-      );
+    const handler = (e: any) => {
+      e.preventDefault();
+      console.log("트리거됨");
+      setSupportsPWA(true);
+      setPromptInstall(e);
     };
-  });
+    window.addEventListener("beforeinstallprompt", handler);
+
+    return () => window.removeEventListener("transitionend", handler);
+  }, []);
+
+  const downloadClick = (evt: any) => {
+    evt.preventDefault();
+    if (!promptInstall) {
+      return;
+    }
+    // @ts-ignore
+    promptInstall.prompt();
+  };
+  if (!supportsPWA) {
+    return null;
+  }
 
   return (
     <>
@@ -146,7 +154,9 @@ export default function MainPage() {
         <br />
         <br />
         <UpperBar>
-          {deferredPrompt && <DownloadApp>앱 다운로드</DownloadApp>}
+          {supportsPWA && (
+            <DownloadApp onClick={downloadClick}>앱 다운로드</DownloadApp>
+          )}
           <NotificationIcon onClick={toNotification} />
         </UpperBar>
         <HomeFrame>
