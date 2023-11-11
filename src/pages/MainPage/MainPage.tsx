@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
 import NavBar from "../../components/NavBar/NavBar";
 import MainFrame from "../../components/MainFrame/MainFrame";
@@ -7,6 +6,7 @@ import ProgressBar from "../../components/ProgressBar/ProgressBar";
 import { ShortButton } from "../../style";
 import { useNavigate } from "react-router-dom";
 import { ReactComponent as Notification } from "../../assets/icons/notification-icon.svg";
+import { useEffect, useState } from "react";
 
 export default function MainPage() {
   const navigate = useNavigate();
@@ -107,37 +107,24 @@ export default function MainPage() {
     }
   };
 
-  const [isInstallable, setIsInstallable] = useState(false);
-  let deferredPrompt : any;
+  const [deferredPrompt, setDefferedPrompt] = useState(null);
+
+  const handleBeforeInstallPrompt = (event: any) => {
+    event.preventDefault();
+
+    setDefferedPrompt(event);
+  };
 
   useEffect(() => {
-    window.addEventListener("beforeinstallprompt", (e) => {
-      // Prevent the mini-infobar from appearing on mobile
-      e.preventDefault();
-      // Stash the event so it can be triggered later.
-      deferredPrompt = e;
-      // Update UI notify the user they can install the PWA
-      setIsInstallable(true);
-    });
+    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
 
-    window.addEventListener("appinstalled", () => {
-      // Hide the app-provided install promotion
-      setIsInstallable(false);
-      // Clear the deferredPrompt so it can be garbage collected
-      deferredPrompt = null;
-      // Optionally, send analytics event that PWA was installed
-      console.log("PWA was installed");
-    });
-  }, []);
-
-  const handleInstallClick = async () => {
-    if (deferredPrompt) {
-      deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      console.log(`User response to the install prompt: ${outcome}`);
-      deferredPrompt = null;
-    }
-  };
+    return () => {
+      window.removeEventListener(
+        "beforeinstallprompt",
+        handleBeforeInstallPrompt
+      );
+    };
+  });
 
   return (
     <>
@@ -159,9 +146,7 @@ export default function MainPage() {
         <br />
         <br />
         <UpperBar>
-          {isInstallable && (
-            <DownloadApp onClick={handleInstallClick}>앱 다운로드</DownloadApp>
-          )}
+          {deferredPrompt && <DownloadApp>앱 다운로드</DownloadApp>}
           <NotificationIcon onClick={toNotification} />
         </UpperBar>
         <HomeFrame>
