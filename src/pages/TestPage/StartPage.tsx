@@ -1,5 +1,5 @@
 // import React from 'react'
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLottie } from 'lottie-react';
 import Letter from "../../assets/lottie/letter.json"
