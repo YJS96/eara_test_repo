@@ -23,7 +23,7 @@
   /* PC */
   width: 100dvw;
   max-width: 544px;
-  height: calc(100% + env(safe-area-inset-top));
+  height: calc(100% + calc(env(safe-area-inset-top) * 2));
   /* padding-top: env(safe-area-inset-top); */
 
   /* iOS */
