@@ -17,7 +17,6 @@ export default function MainFrame({
   children,
 }: MainFrameProps) {
   var marginTop = "0";
-  var marginBottom = 0;
   var frame = "0";
   var marginsides = 0;
 
