@@ -99,7 +99,7 @@ const LoginBackground = styled(LoginBackgroundSVG)`
 `;
 
 const EARA = styled.div`
-  margin-bottom: 56px;
+  margin-bottom: 48px;
   font-size: 1.625em;
   font-weight: 400;
   line-height: 1.4em;
@@ -121,11 +121,10 @@ const EARABold = styled.span`
 
 const ButtonsFrame = styled.div`
   position: absolute;
-  background-color: var(--white);
   left: 0;
   right: 0;
   bottom: 0;
-  max-height: 55%;
+  max-height: 60%;
 `;
 
 const KakaoButton = styled.div`
@@ -171,7 +170,7 @@ const HelpButtonsFrame = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin-bottom: 32px;
+  margin-bottom: 26px;
 `;
 
 const HelpButton = styled.div`
