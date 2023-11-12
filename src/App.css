@@ -23,7 +23,7 @@
   /* PC */
   width: 100dvw;
   max-width: 544px;
-  height: calc(100% + env(safe-area-inset-top) + env(safe-area-inset-bottom));
+  height: calc(100% + env(safe-area-inset-top) + env(safe-area-inset-bottom) * 2.5);
   /* padding-top: env(safe-area-inset-top); */
 
   /* iOS */
@@ -35,7 +35,7 @@
   height: 800px; */
 
 
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
