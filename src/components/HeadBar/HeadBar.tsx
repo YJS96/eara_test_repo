@@ -37,24 +37,23 @@ export default function HeadBar({ pagename, bgcolor, backbutton, center }: HeadB
 const HeadBarFrame = styled.div`
   position: absolute;
   width: 100%;
-  height: 96px;
-  top: 0;
+  height: 48px;
+  top: env(safe-area-inset-top);
   left: 0;
   border-bottom: 1px solid var(--gray);
+  border: 1px solid black;
   /* border: 1px black solid; */
-  
+  display: flex;
+  align-items: center;
   z-index: 2;
 `
 
 const HeadBarContext = styled.div`
   position: relative;
-  margin-top: 60px;
   padding-left: 12px;
   font-size: 21px;
   font-weight: 650;
-  display: flex;
-  align-items: center;
-`
+  display: flex;`
 
 const CenterFrame = styled.div`
   position: absolute;
