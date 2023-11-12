@@ -2,18 +2,28 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import MainFrame from "../../components/MainFrame/MainFrame";
+import AnimationModal from "../../components/Modal/AnimationModal";
 import { ReactComponent as LoginBackgroundSVG } from "../../assets/icons/login-background.svg";
 import { ReactComponent as Download } from "../../assets/icons/download-icon.svg";
+import { ReactComponent as SafariShare } from "../../assets/icons/safari-share.svg";
+import { ReactComponent as SafariAdd } from "../../assets/icons/safari-add.svg";
+import { LongButton } from "../../style";
 
 export default function LoginPage() {
   const helpURL = "http://pf.kakao.com/_xbxhxgsG";
   const netZeroURL =
-    "https://cpoint.or.kr/netzero/member/nv_memberRegistStep1.do";
+    "https://cpoint.or.kr/netzero/main.do";
 
   const [supportsPWA, setSupportsPWA] = useState(false);
   const [promptInstall, setPromptInstall] = useState(null);
 
+  const [isIOS, setIsIOS] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+
   useEffect(() => {
+    const isDeviceIOS = /iPad|iPhone|iPod/.test(window.navigator.userAgent);
+    setIsIOS(isDeviceIOS);
+
     const handler = (e: any) => {
       e.preventDefault();
       setSupportsPWA(true);
@@ -24,16 +34,24 @@ export default function LoginPage() {
     return () => window.removeEventListener("transitionend", handler);
   }, []);
 
-  const installApp = (event: any) => {
-    event.preventDefault();
-    if (!promptInstall) {
-      return;
-    }
-    // @ts-ignore
-    promptInstall.prompt();
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
-    if (!supportsPWA) {
-      return null;
+  const installApp = (event: any) => {
+    if (isIOS) {
+      setModalOpen(true);
+    } else {
+      event.preventDefault();
+      if (!promptInstall) {
+        return;
+      }
+      // @ts-ignore
+      promptInstall.prompt();
+
+      if (!supportsPWA) {
+        return null;
+      }
     }
   };
 
@@ -79,6 +97,26 @@ export default function LoginPage() {
           </HelpButtonsFrame>
         </ButtonsFrame>
       </MainFrame>
+      <AnimationModal
+        isOpen={modalOpen}
+        closeModal={closeModal}
+        closeBtn={true}
+      >
+        <IOSInfoLine style={{marginTop: '28px'}}>
+          Safari&nbsp;<span>중앙 하단</span>의 &nbsp;
+          <SafariShare />
+          &nbsp;에서
+        </IOSInfoLine>
+        <IOSInfoLine>
+          <span>홈 화면에 추가</span> &nbsp;
+          <SafariAdd />
+          &nbsp;를
+        </IOSInfoLine>
+        <IOSInfoLine>
+          클릭해 어플리케이션을&nbsp;<span>설치</span>하세요
+        </IOSInfoLine>
+        <ConfirmButton onClick={closeModal}>확인</ConfirmButton>
+      </AnimationModal>
     </>
   );
 }
@@ -177,4 +215,23 @@ const HelpButton = styled.div`
   font-size: 13px;
   color: var(--dark-gray);
   font-weight: 500;
+`;
+
+const IOSInfoLine = styled.div`
+  display: flex;
+  height: 32px;
+  margin-top: 12px;
+  align-items: center;
+  font-size: 17px;
+  font-weight: 400;
+
+  span {
+    font-weight: 500;
+  }
+`;
+
+const ConfirmButton = styled(LongButton)`
+  width: 86.25%;
+  height: 40px;
+  margin-top: 40px;
 `;

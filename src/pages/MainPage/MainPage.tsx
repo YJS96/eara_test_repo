@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import NavBar from "../../components/NavBar/NavBar";
 import MainFrame from "../../components/MainFrame/MainFrame";
-import { ModalFrame } from "../../components/Modal/ModalFrame";
+import { ModalFrame } from "../../style/ModalFrame";
 import ProgressBar from "../../components/ProgressBar/ProgressBar";
 import { ShortButton } from "../../style";
 import { useNavigate } from "react-router-dom";
@@ -166,7 +166,7 @@ export default function MainPage() {
 const NotificationIcon = styled(Notification)`
   position: absolute;
   right: 5.56%;
-  top: max(env(safe-area-inset-top), 24px);
+  top: max(calc(env(safe-area-inset-top) + 4px), 28px);
   filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.12));
 `;
 
