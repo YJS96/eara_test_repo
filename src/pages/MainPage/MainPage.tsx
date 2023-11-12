@@ -107,33 +107,20 @@ export default function MainPage() {
     }
   };
 
-  const [supportsPWA, setSupportsPWA] = useState(false);
-  const [promptInstall, setPromptInstall] = useState(null);
+  const [isIOS, setIsIOS] = useState(false);
 
   useEffect(() => {
-    const handler = (e: any) => {
-      e.preventDefault();
-      console.log("트리거됨");
-      setSupportsPWA(true);
-      setPromptInstall(e);
-    };
-    window.addEventListener("beforeinstallprompt", handler);
+    const isDeviceIOS =
+      /iPad|iPhone|iPod/.test(window.navigator.userAgent);
+    setIsIOS(isDeviceIOS);
+  })
 
-    return () => window.removeEventListener("transitionend", handler);
-  }, []);
+  console.log(isIOS)
 
-  const downloadClick = (evt: any) => {
-    evt.preventDefault();
-    if (!promptInstall) {
-      return;
-    }
-    // @ts-ignore
-    promptInstall.prompt();
-    if (!supportsPWA) {
-      return null;
-    }
-  };
-    
+  const alertIOS = () => {
+    alert(isIOS)
+  }
+
   return (
     <>
       <MainFrame headbar="no" navbar="yes" bgcolor="third" marginsize="no">
@@ -154,9 +141,7 @@ export default function MainPage() {
         <br />
         <br />
         <UpperBar>
-          {supportsPWA && (
-            <DownloadApp onClick={downloadClick}>앱 다운로드</DownloadApp>
-          )}
+          <DownloadApp onClick={alertIOS}>앱 다운로드</DownloadApp>
           <NotificationIcon onClick={toNotification} />
         </UpperBar>
         <HomeFrame>
