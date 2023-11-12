@@ -55,7 +55,7 @@ export default function MainFrame({
         padding: `0px ${marginsides}%`,
       }}
     >
-      <Margin />
+      {/* <Margin /> */}
       {children}
     </Main>
   );
@@ -73,8 +73,8 @@ const Main = styled.div`
   overflow-y: scroll;
 `;
 
-const Margin = styled.div`
-  position: relative;
-  width: 100%;
-  height: env(safe-area-inset-top);
-`;
+// const Margin = styled.div`
+//   position: relative;
+//   width: 100%;
+//   height: env(safe-area-inset-top);
+// `;
