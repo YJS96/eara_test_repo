@@ -124,6 +124,10 @@ export default function MainPage() {
             <Bold>1,242,600</Bold>그린
           </GreenLeft>
 
+          <ENVTest>
+
+          </ENVTest>
+
           <ProgressBar progress={progress} greeninit={greenInit} />
 
           <SummaryText>주간 활동 요약</SummaryText>
@@ -266,3 +270,11 @@ const ButtonsFrame = styled.div`
   justify-content: space-between;
   margin-bottom: 24px;
 `;
+
+
+const ENVTest = styled.div`
+  width: 100%;
+  height: env(safe-area-inset-top);
+  border: 1px black solid;
+
+`

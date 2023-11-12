@@ -37,8 +37,8 @@ export default function HeadBar({ pagename, bgcolor, backbutton, center }: HeadB
 const HeadBarFrame = styled.div`
   position: absolute;
   width: 100%;
-  height: 48px;
-  margin-top: env(safe-area-inset-top);
+  height: max(48px, calc(48px + env(safe-area-inset-top) * 10));
+  top: 0;
   left: 0;
   border-bottom: 1px solid var(--gray);
   /* border: 1px black solid; */
