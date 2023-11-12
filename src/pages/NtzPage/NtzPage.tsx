@@ -242,7 +242,7 @@ export default function NtzPage() {
 
 const CPointContainer = styled(ShadowBox)`
   height: 308px;
-  margin-top: 54px;
+  margin-top: 24px;
   padding-top: 20px;
   font-size: 18px;
   font-weight: 400;

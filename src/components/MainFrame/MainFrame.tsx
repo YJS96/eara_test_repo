@@ -46,13 +46,14 @@ export default function MainFrame({
       style={{
         backgroundColor: `var(--${bgcolor})`,
         height: `calc(100% - ${frame}px)`,
-        marginTop: `${marginTop}px`,
+        marginTop: `max(48px, calc(48px + env(safe-area-inset-top)))`,
         marginBottom: `${marginBottom}px`,
         // paddingLeft: `${marginsides}%`,
         // paddingRight: `${marginsides}%`,
         padding: `0px ${marginsides}%`,
       }}
     >
+      <Margin/>
       {children}
     </Main>
   );
@@ -69,3 +70,9 @@ const Main = styled.div`
   overflow-x: hidden;
   overflow-y: scroll;
 `;
+
+const Margin = styled.div`
+  position: relative;
+  width: 100%;
+  height: env(safe-area-inset-top);
+`

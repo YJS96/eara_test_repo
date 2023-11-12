@@ -50,6 +50,7 @@ const HeadBarFrame = styled.div`
 
 const HeadBarContext = styled.div`
   position: relative;
+  width: 100%;
   padding-left: 12px;
   font-size: 21px;
   font-weight: 650;
