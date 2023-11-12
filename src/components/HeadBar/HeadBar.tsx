@@ -38,10 +38,9 @@ const HeadBarFrame = styled.div`
   position: absolute;
   width: 100%;
   height: 48px;
-  top: env(safe-area-inset-top);
+  margin-top: env(safe-area-inset-top);
   left: 0;
   border-bottom: 1px solid var(--gray);
-  border: 1px solid black;
   /* border: 1px black solid; */
   display: flex;
   align-items: center;
