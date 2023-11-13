@@ -11,39 +11,47 @@ import { LongButton } from "../../style";
 
 export default function LoginPage() {
   const helpURL = "http://pf.kakao.com/_xbxhxgsG";
-  const netZeroURL = "https://cpoint.or.kr/netzero/main.do";
+  const netZeroURL =
+    "https://cpoint.or.kr/netzero/main.do";
 
-  // const [supportsPWA, setSupportsPWA] = useState(false);
-  // const [promptInstall, setPromptInstall] = useState(null);
+  const [supportsPWA, setSupportsPWA] = useState(false);
+  const [promptInstall, setPromptInstall] = useState(null);
 
   const [isIOS, setIsIOS] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  let deferredPrompt: any;
 
   useEffect(() => {
     const isDeviceIOS = /iPad|iPhone|iPod/.test(window.navigator.userAgent);
     setIsIOS(isDeviceIOS);
 
-    window.addEventListener("beforeinstallprompt", (event) => {
-      event.preventDefault();
-      deferredPrompt = event;
-    });
+    const handler = (e: any) => {
+      e.preventDefault();
+      setSupportsPWA(true);
+      setPromptInstall(e);
+    };
+    window.addEventListener("beforeinstallprompt", handler);
+
+    return () => window.removeEventListener("transitionend", handler);
   }, []);
 
   const closeModal = () => {
     setModalOpen(false);
   };
 
-  const installApp = () => {
+  const installApp = (event: any) => {
     if (isIOS) {
       setModalOpen(true);
     } else {
-      if (!deferredPrompt) {
-        alert("이미 앱이 설치되어 있거나 앱을 설치할 수 없는 환경입니다");
-        return;
+      event.preventDefault();
+      if (!promptInstall) {
+        alert("이미 앱이 설치되어 있습니다");
       }
-
-      deferredPrompt.prompt();
+      
+      if (!supportsPWA) {
+        alert("설치할 수 없는 환경입니다");
+      }
+      // @ts-ignore
+      promptInstall.prompt();
     }
   };
 
@@ -63,14 +71,7 @@ export default function LoginPage() {
             <br />
             고소한다면?
           </EARA>
-          <KakaoButton
-          // href={
-          //   import.meta.env.VITE_BASEURL_BACK +
-          //   "/oauth2/authorization/kakao?redirect_uri=" +
-          //   import.meta.env.VITE_BASEURL_FRONT +
-          //   "/oauth/redirect"
-          // }
-          >
+          <KakaoButton>
             카카오로 시작하기
             <ButtonLogo src="images/kakao-logo.png" />
           </KakaoButton>
@@ -101,7 +102,7 @@ export default function LoginPage() {
         closeModal={closeModal}
         closeBtn={true}
       >
-        <IOSInfoLine style={{ marginTop: "28px" }}>
+        <IOSInfoLine style={{marginTop: '28px'}}>
           Safari&nbsp;<span>중앙 하단</span>의 &nbsp;
           <SafariShare />
           &nbsp;에서
