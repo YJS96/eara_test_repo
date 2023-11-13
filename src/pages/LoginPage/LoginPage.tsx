@@ -189,7 +189,7 @@ const HelpButtonsFrame = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin-bottom: 26px;
+  margin-bottom: 32px;
 `;
 
 const HelpButton = styled.div`
