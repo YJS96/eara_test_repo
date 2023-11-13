@@ -8,12 +8,13 @@ import { ReactComponent as Download } from "../../assets/icons/download-icon.svg
 import { ReactComponent as SafariShare } from "../../assets/icons/safari-share.svg";
 import { ReactComponent as SafariAdd } from "../../assets/icons/safari-add.svg";
 import { LongButton } from "../../style";
+import { usePWAInstall } from "react-use-pwa-install";
 
 export default function LoginPage() {
   const helpURL = "http://pf.kakao.com/_xbxhxgsG";
   const netZeroURL = "https://cpoint.or.kr/netzero/main.do";
 
-  const [promptInstall, setPromptInstall] = useState(null);
+  const install = usePWAInstall();
 
   const [isIOS, setIsIOS] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
@@ -21,31 +22,14 @@ export default function LoginPage() {
   useEffect(() => {
     const isDeviceIOS = /iPad|iPhone|iPod/.test(window.navigator.userAgent);
     setIsIOS(isDeviceIOS);
-
-    const handler = (e: any) => {
-      e.preventDefault();
-      setPromptInstall(e);
-    };
-    window.addEventListener("beforeinstallprompt", handler);
-
-    return () => window.removeEventListener("transitionend", handler);
   }, []);
 
   const closeModal = () => {
     setModalOpen(false);
   };
 
-  const installApp = (event: any) => {
-    if (isIOS) {
-      setModalOpen(true);
-    } else {
-      event.preventDefault();
-      if (!promptInstall) {
-        alert("이미 앱이 설치되어 있거나 앱을 설치할 수 없는 환경입니다");
-      }
-      // @ts-ignore
-      promptInstall.prompt();
-    }
+  const openModalFunction = () => {
+    setModalOpen(true);
   };
 
   return (
@@ -68,10 +52,14 @@ export default function LoginPage() {
             카카오로 시작하기
             <ButtonLogo src="images/kakao-logo.png" />
           </KakaoButton>
-          <InstallButton onClick={installApp}>
-            어플리케이션 설치
-            <DownloadIcon />
-          </InstallButton>
+          {isIOS ? (
+            <InstallButton onClick={openModalFunction}>
+              어플리케이션 설치
+              <DownloadIcon />
+            </InstallButton>
+          ) : (
+            <InstallButton onClick={install}>어플리케이션 설치<DownloadIcon /></InstallButton>
+          )}
           <HelpButtonsFrame>
             <HelpButton
               onClick={() => {
