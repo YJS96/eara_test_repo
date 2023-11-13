@@ -19,17 +19,14 @@ export default function LoginPage() {
   const [isIOS, setIsIOS] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   let deferredPrompt: any;
+  window.addEventListener("beforeinstallprompt", (event) => {
+    event.preventDefault();
+    deferredPrompt = event;
+  });
 
   useEffect(() => {
     const isDeviceIOS = /iPad|iPhone|iPod/.test(window.navigator.userAgent);
     setIsIOS(isDeviceIOS);
-
-    setTimeout(() => {
-      window.addEventListener("beforeinstallprompt", (event) => {
-        event.preventDefault();
-        deferredPrompt = event;
-      });
-    }, 200);
   }, []);
 
   const closeModal = () => {
