@@ -93,6 +93,7 @@ export default function ResultPage() {
         <Title>xx님의</Title>
       </Panel>
       <HideUnderClock />
+      <HideBottomBar />
       <ResultFrame>
           <MarginBox />
         <ResultInner>
@@ -116,6 +117,7 @@ export default function ResultPage() {
           내 결과 공유하기
           <button onClick={shareKakao}>카카오로 공유하기</button>
         </ResultInner>
+        <MarginBox />
       </ResultFrame>
       <Panel className="bottom">
         <Title>지구재판 결과는?</Title>
@@ -196,6 +198,16 @@ const HideUnderClock = styled.div`
   width: 100%;
   top: env(safe-area-inset-top);
   height: env(safe-area-inset-top);
+  background-color: var(--white);
+  z-index: 999;
+`
+
+const HideBottomBar = styled.div`
+  position: fixed;
+  bottom: 0;
+  border: 1px blue solid;
+  width: 100%;
+  height: env(safe-area-inset-bottom);
   background-color: var(--white);
   z-index: 999;
 `
