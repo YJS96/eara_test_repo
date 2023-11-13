@@ -58,7 +58,10 @@ export default function LoginPage() {
               <DownloadIcon />
             </InstallButton>
           ) : (
-            <InstallButton onClick={install}>어플리케이션 설치<DownloadIcon /></InstallButton>
+            <InstallButton onClick={install}>
+              어플리케이션 설치
+              <DownloadIcon />
+            </InstallButton>
           )}
           <HelpButtonsFrame>
             <HelpButton
@@ -189,7 +192,7 @@ const HelpButtonsFrame = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin-bottom: 32px;
+  margin-bottom: 26px;
 `;
 
 const HelpButton = styled.div`
@@ -207,7 +210,7 @@ const IOSInfoLine = styled.div`
   font-weight: 400;
 
   span {
-    font-weight: 600;
+    font-weight: 500;
   }
 `;
 
