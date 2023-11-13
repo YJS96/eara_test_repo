@@ -92,8 +92,10 @@ export default function ResultPage() {
       <Panel className="top">
         <Title>xx님의</Title>
       </Panel>
+      <HideUnderClock />
       <ResultFrame>
-        <ResultInner>
+        {/* <ResultInner> */}
+          <MarginBox />
           <TypeName>당신은 .. <br/><span>{earthType.name}</span></TypeName>
           <EarthFrame>
             <Lottie animationData={earth} />
@@ -113,23 +115,35 @@ export default function ResultPage() {
           <button onClick={() => navigate('/signup')}>회원가입하기</button>
           내 결과 공유하기
           <button onClick={shareKakao}>카카오로 공유하기</button>
-        </ResultInner>
+        {/* </ResultInner> */}
       </ResultFrame>
-      <Panel className="bottom">
+      {/* <Panel className="bottom">
         <Title>지구재판 결과는?</Title>
-      </Panel>
+      </Panel> */}
     </MainFrame>
   );
 }
 
 const slideUp = keyframes`
-  33.3% {transform: translateY(0);}
-  100% {transform: translateY(-100%);}
+  33.3% {
+    transform: translateY(0);
+  }
+  99% {
+    opacity: 1;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 0;
+  }
 `;
 
 const slideDwon = keyframes`
-  33.3% {transform: translateY(0);}
-  100% {transform: translateY(100%);}
+  33.3% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
 `;
 
 const MainFrame = styled.div`
@@ -167,21 +181,41 @@ const Title = styled.div`
 
 const ResultFrame = styled.div`
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 84%;
-  top: calc(12% + env(safe-area-inset-top));
+  height: 100%;
   overflow-y: scroll;
+  border: 1px black solid
 `;
 
-const ResultInner = styled.div`
+const HideUnderClock = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  border: 1px black solid;
+  width: 100%;
+  top: env(safe-area-inset-top);
+  /* height: env(safe-area-inset-top); */
+  background-color: var(--white);
+`
+
+const MarginBox = styled.div`
+  position: relative;
+  width: 100%;
+  height: calc(12% + env(safe-area-inset-top))
+`
+
+/* const ResultInner = styled.div`
   padding: 2% 10% 12%;
-`;
+`; */
 
 const TypeName = styled.div`
   text-align: center;
   font-size: 32px;
   font-weight: 650;
   margin-bottom: 24px;
+  line-height: 48px;
   span {
     color: var(--primary);
     font-size: 36px;
