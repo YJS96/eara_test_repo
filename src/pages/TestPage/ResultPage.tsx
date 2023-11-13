@@ -94,7 +94,7 @@ export default function ResultPage() {
       </Panel>
       <HideUnderClock />
       <ResultFrame>
-        {/* <ResultInner> */}
+        <ResultInner>
           <MarginBox />
           <TypeName>당신은 .. <br/><span>{earthType.name}</span></TypeName>
           <EarthFrame>
@@ -115,11 +115,11 @@ export default function ResultPage() {
           <button onClick={() => navigate('/signup')}>회원가입하기</button>
           내 결과 공유하기
           <button onClick={shareKakao}>카카오로 공유하기</button>
-        {/* </ResultInner> */}
+        </ResultInner>
       </ResultFrame>
-      {/* <Panel className="bottom">
+      <Panel className="bottom">
         <Title>지구재판 결과는?</Title>
-      </Panel> */}
+      </Panel>
     </MainFrame>
   );
 }
@@ -186,17 +186,16 @@ const ResultFrame = styled.div`
   width: 100%;
   height: 100%;
   overflow-y: scroll;
-  border: 1px black solid
+  /* border: 1px black solid */
 `;
 
 const HideUnderClock = styled.div`
   position: fixed;
-  top: 0;
   left: 0;
   border: 1px black solid;
   width: 100%;
   top: env(safe-area-inset-top);
-  /* height: env(safe-area-inset-top); */
+  height: env(safe-area-inset-top);
   background-color: var(--white);
 `
 
@@ -206,9 +205,9 @@ const MarginBox = styled.div`
   height: calc(12% + env(safe-area-inset-top))
 `
 
-/* const ResultInner = styled.div`
-  padding: 2% 10% 12%;
-`; */
+const ResultInner = styled.div`
+  padding: 0 10%;
+`;
 
 const TypeName = styled.div`
   text-align: center;
