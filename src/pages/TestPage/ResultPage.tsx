@@ -133,7 +133,7 @@ const slideDwon = keyframes`
 `;
 
 const MainFrame = styled.div`
-  margin-top: env(safe-area-inset-top);
+  /* margin-top: env(safe-area-inset-top); */
   width: 100%;
   height: 100%;
 `;
