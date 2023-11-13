@@ -184,7 +184,7 @@ const ResultFrame = styled.div`
   top: calc(env(safe-area-inset-top) * 2);
   left: 0;
   width: 100%;
-  height: 100%;
+  height: calc(100% - env(safe-area-inset-top));
   overflow-y: scroll;
   /* border: 1px black solid */
 `;
