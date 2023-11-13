@@ -207,7 +207,7 @@ const IOSInfoLine = styled.div`
   font-weight: 400;
 
   span {
-    font-weight: 500;
+    font-weight: 600;
   }
 `;
 
