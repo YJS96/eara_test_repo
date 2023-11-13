@@ -14,7 +14,7 @@ export default function LoginPage() {
   const netZeroURL =
     "https://cpoint.or.kr/netzero/main.do";
 
-  const [supportsPWA, setSupportsPWA] = useState(false);
+  // const [supportsPWA, setSupportsPWA] = useState(false);
   const [promptInstall, setPromptInstall] = useState(null);
 
   const [isIOS, setIsIOS] = useState(false);
@@ -26,7 +26,7 @@ export default function LoginPage() {
 
     const handler = (e: any) => {
       e.preventDefault();
-      setSupportsPWA(true);
+      // setSupportsPWA(true);
       setPromptInstall(e);
     };
     window.addEventListener("beforeinstallprompt", handler);
