@@ -181,7 +181,7 @@ const Title = styled.div`
 
 const ResultFrame = styled.div`
   position: absolute;
-  top: calc(env(safe-area-inset-top) * 2);
+  top: calc(env(safe-area-inset-top));
   left: 0;
   width: 100%;
   height: calc(100% - env(safe-area-inset-top));
@@ -203,8 +203,8 @@ const HideUnderClock = styled.div`
 const MarginBox = styled.div`
   position: relative;
   width: 100%;
-  border: 1px black red;
-  height: calc(12% + env(safe-area-inset-top))
+  border: 1px solid red;
+  height: 12%;
 `
 
 const ResultInner = styled.div`
