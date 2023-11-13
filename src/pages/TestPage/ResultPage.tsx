@@ -94,8 +94,8 @@ export default function ResultPage() {
       </Panel>
       <HideUnderClock />
       <ResultFrame>
-        <ResultInner>
           <MarginBox />
+        <ResultInner>
           <TypeName>당신은 .. <br/><span>{earthType.name}</span></TypeName>
           <EarthFrame>
             <Lottie animationData={earth} />
@@ -181,7 +181,7 @@ const Title = styled.div`
 
 const ResultFrame = styled.div`
   position: absolute;
-  top: 0;
+  top: calc(env(safe-area-inset-top) * 2);
   left: 0;
   width: 100%;
   height: 100%;
@@ -197,11 +197,13 @@ const HideUnderClock = styled.div`
   top: env(safe-area-inset-top);
   height: env(safe-area-inset-top);
   background-color: var(--white);
+  z-index: 999;
 `
 
 const MarginBox = styled.div`
   position: relative;
   width: 100%;
+  border: 1px black red;
   height: calc(12% + env(safe-area-inset-top))
 `
 
