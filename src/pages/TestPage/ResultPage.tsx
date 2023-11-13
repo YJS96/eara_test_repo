@@ -152,6 +152,7 @@ const MainFrame = styled.div`
   /* margin-top: env(safe-area-inset-top); */
   width: 100%;
   height: 100%;
+  overflow-x: hide;
 `;
 
 const Panel = styled.div`
@@ -188,13 +189,11 @@ const ResultFrame = styled.div`
   width: 100%;
   height: calc(100% - env(safe-area-inset-top));
   overflow-y: scroll;
-  /* border: 1px black solid */
 `;
 
 const HideUnderClock = styled.div`
   position: fixed;
   left: 0;
-  border: 1px black solid;
   width: 100%;
   top: env(safe-area-inset-top);
   height: env(safe-area-inset-top);
@@ -205,7 +204,6 @@ const HideUnderClock = styled.div`
 const HideBottomBar = styled.div`
   position: fixed;
   bottom: 0;
-  border: 1px blue solid;
   width: 100%;
   height: env(safe-area-inset-bottom);
   background-color: var(--white);
@@ -215,7 +213,6 @@ const HideBottomBar = styled.div`
 const MarginBox = styled.div`
   position: relative;
   width: 100%;
-  border: 1px solid red;
   height: 12%;
 `
 
