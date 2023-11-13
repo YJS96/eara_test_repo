@@ -13,36 +13,38 @@ export default function LoginPage() {
   const helpURL = "http://pf.kakao.com/_xbxhxgsG";
   const netZeroURL = "https://cpoint.or.kr/netzero/main.do";
 
-  // const [supportsPWA, setSupportsPWA] = useState(false);
-  // const [promptInstall, setPromptInstall] = useState(null);
+  const [promptInstall, setPromptInstall] = useState(null);
 
   const [isIOS, setIsIOS] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  let deferredPrompt: any;
-  window.addEventListener("beforeinstallprompt", (event) => {
-    event.preventDefault();
-    deferredPrompt = event;
-  });
 
   useEffect(() => {
     const isDeviceIOS = /iPad|iPhone|iPod/.test(window.navigator.userAgent);
     setIsIOS(isDeviceIOS);
+
+    const handler = (e: any) => {
+      e.preventDefault();
+      setPromptInstall(e);
+    };
+    window.addEventListener("beforeinstallprompt", handler);
+
+    return () => window.removeEventListener("transitionend", handler);
   }, []);
 
   const closeModal = () => {
     setModalOpen(false);
   };
 
-  const installApp = () => {
+  const installApp = (event: any) => {
     if (isIOS) {
       setModalOpen(true);
     } else {
-      if (!deferredPrompt) {
+      event.preventDefault();
+      if (!promptInstall) {
         alert("이미 앱이 설치되어 있거나 앱을 설치할 수 없는 환경입니다");
-        return;
       }
-
-      deferredPrompt.prompt();
+      // @ts-ignore
+      promptInstall.prompt();
     }
   };
 
@@ -62,14 +64,7 @@ export default function LoginPage() {
             <br />
             고소한다면?
           </EARA>
-          <KakaoButton
-          // href={
-          //   import.meta.env.VITE_BASEURL_BACK +
-          //   "/oauth2/authorization/kakao?redirect_uri=" +
-          //   import.meta.env.VITE_BASEURL_FRONT +
-          //   "/oauth/redirect"
-          // }
-          >
+          <KakaoButton>
             카카오로 시작하기
             <ButtonLogo src="images/kakao-logo.png" />
           </KakaoButton>
@@ -206,7 +201,7 @@ const HelpButtonsFrame = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin-bottom: 32px;
+  margin-bottom: 26px;
 `;
 
 const HelpButton = styled.div`
