@@ -43,15 +43,15 @@ export default function LoginPage() {
       setModalOpen(true);
     } else {
       event.preventDefault();
-      if (!promptInstall) {
-        return;
-      }
+      // if (!promptInstall) {
+      //   return;
+      // }
       // @ts-ignore
       promptInstall.prompt();
 
-      if (!supportsPWA) {
-        return null;
-      }
+      // if (!supportsPWA) {
+      //   return null;
+      // }
     }
   };
 
