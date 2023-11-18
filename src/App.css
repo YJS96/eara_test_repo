@@ -16,7 +16,8 @@
   --yellow: #FEE227;
   --kakao-black: #351C1B;
   --kakao-yellow: #F9DD4A;
-  
+
+  color: var(--black)
 }
 
 #root {
