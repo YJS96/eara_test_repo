@@ -1,10 +1,15 @@
+import { useEffect } from "react";
 import styled from "styled-components";
 
 export default function MainPage() {
-
   const toEara = () => {
-    location.href="https://www.ea-ra.com/login"
-  }
+    console.log("2");
+    location.href = "https://www.ea-ra.com/login";
+  };
+
+  useEffect(() => {
+    console.log("1");
+  }, []);
 
   return (
     <>
@@ -12,12 +17,8 @@ export default function MainPage() {
         <LogoFrame onClick={toEara}>
           <Logo src="/images/logo-nobackground.png" />
         </LogoFrame>
-        <AppName>
-          어라
-        </AppName>
-        <Introduce>
-          어라가 정식 배포 되었습니다
-        </Introduce>
+        <AppName>어라</AppName>
+        <Introduce>어라가 정식 배포 되었습니다</Introduce>
         <Button onClick={toEara}>사용해보기</Button>
       </MainFrame>
     </>
@@ -32,7 +33,7 @@ const MainFrame = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-`
+`;
 
 const LogoFrame = styled.div`
   position: relative;
@@ -40,29 +41,29 @@ const LogoFrame = styled.div`
   height: 100px;
   border-radius: 20px;
   background-color: var(--white);
-  box-shadow: 2px 2px 8px rgba(0,0,0, 0.08);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.08);
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 
 const Logo = styled.img`
   position: relative;
   width: 84%;
   height: 84%;
-`
+`;
 
 const AppName = styled.div`
   margin-top: 16px;
   font-size: 18px;
   font-weight: 400;
-`
+`;
 
 const Introduce = styled.div`
   margin-top: 48px;
   margin-bottom: 56px;
   font-size: 15px;
-`
+`;
 
 const Button = styled.div`
   position: absolute;
@@ -77,4 +78,4 @@ const Button = styled.div`
   border-radius: 10px;
   font-weight: 400;
   font-size: 15px;
-`
+`;
