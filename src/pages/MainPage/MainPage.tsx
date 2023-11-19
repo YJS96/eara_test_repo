@@ -1,15 +1,10 @@
-import { useEffect } from "react";
 import styled from "styled-components";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function MainPage() {
   const toEara = () => {
-    console.log("2");
     location.href = "https://www.ea-ra.com/login";
   };
-
-  useEffect(() => {
-    console.log("1");
-  }, []);
 
   return (
     <>
@@ -20,6 +15,7 @@ export default function MainPage() {
         <AppName>어라</AppName>
         <Introduce>어라가 정식 배포 되었습니다</Introduce>
         <Button onClick={toEara}>사용해보기</Button>
+        <Analytics />
       </MainFrame>
     </>
   );
